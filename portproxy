@@ -1,0 +1,23 @@
+:check
+timeout /t 5
+FOR /F "tokens=1 USEBACKQ" %%F IN (`type C:\Users\remote\Desktop\autoadmintask\wslip.txt`) DO (SET wslip=%%F)
+if not defined wslip goto check
+netsh interface portproxy delete v4tov4 listenport=12131 listenaddress=0.0.0.0
+netsh interface portproxy delete v4tov4 listenport=12132 listenaddress=0.0.0.0
+netsh interface portproxy delete v4tov4 listenport=12133 listenaddress=0.0.0.0
+netsh interface portproxy delete v4tov4 listenport=12134 listenaddress=0.0.0.0
+netsh interface portproxy delete v4tov4 listenport=12135 listenaddress=0.0.0.0
+netsh interface portproxy delete v4tov4 listenport=12136 listenaddress=0.0.0.0
+netsh interface portproxy delete v4tov4 listenport=12137 listenaddress=0.0.0.0
+netsh interface portproxy delete v4tov4 listenport=12138 listenaddress=0.0.0.0
+netsh interface portproxy delete v4tov4 listenport=12139 listenaddress=0.0.0.0
+netsh interface portproxy add v4tov4 listenport=13131 listenaddress=0.0.0.0 connectport=12131 connectaddress=%wslip%
+netsh interface portproxy add v4tov4 listenport=13132 listenaddress=0.0.0.0 connectport=12132 connectaddress=%wslip%
+netsh interface portproxy add v4tov4 listenport=13133 listenaddress=0.0.0.0 connectport=12133 connectaddress=%wslip%
+netsh interface portproxy add v4tov4 listenport=13134 listenaddress=0.0.0.0 connectport=12134 connectaddress=%wslip%
+netsh interface portproxy add v4tov4 listenport=13135 listenaddress=0.0.0.0 connectport=12135 connectaddress=%wslip%
+netsh interface portproxy add v4tov4 listenport=13136 listenaddress=0.0.0.0 connectport=12136 connectaddress=%wslip%
+netsh interface portproxy add v4tov4 listenport=13137 listenaddress=0.0.0.0 connectport=12137 connectaddress=%wslip%
+netsh interface portproxy add v4tov4 listenport=13138 listenaddress=0.0.0.0 connectport=12138 connectaddress=%wslip%
+netsh interface portproxy add v4tov4 listenport=13139 listenaddress=0.0.0.0 connectport=12139 connectaddress=%wslip%
+del C:\Users\remote\Desktop\autoadmintask\wslip.txt
