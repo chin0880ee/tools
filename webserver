@@ -14,3 +14,30 @@ context.load_cert_chain('cert.pem', 'key.pem')
 httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
 
 httpd.serve_forever()
+
+{
+  "folders": [
+    {
+      "path": "/path/to/project"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true
+    },
+    "C_Cpp.default.configurationProvider": "configProvider",
+    "C_Cpp.default.includePath": [
+      "${workspaceFolder}/**",
+      "/usr/include",
+      "/usr/local/include"
+    ],
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+    "C_Cpp.default.intelliSenseMode": "gcc-x64"
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.cpptools"
+    ]
+  }
+}
