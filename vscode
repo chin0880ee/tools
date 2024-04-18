@@ -1,3 +1,5 @@
 # code-server
 https://update.code.visualstudio.com/commit:${commit}/server-win32-x64/stable
 .vscode-server\cli\servers\Stable-${commit}\server
+
+DISABLE remote.SSH.useExecServer
