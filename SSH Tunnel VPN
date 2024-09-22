@@ -1,3 +1,7 @@
+# Client --ssh--> Server
+ssh -w 0:0 140.83.61.193 "ifconfig tun0 10.0.2.1 netmask 255.255.255.252 pointopoint 10.0.2.2 ; echo 1 > /proc/sys/net/ipv4/ip_forward ;/sbin/iptables -t nat -A POSTROUTING -o eth0@if2 -j MASQUERADE"
+ifconfig tun0 10.0.2.2 netmask 255.255.255.252 pointopoint 10.0.2.1
+# Server --ssh--> Client
 ssh -w 0:0 -o ServerAliveInterval=120 140.83.61.193 "ifconfig tun0 10.0.2.1 netmask 255.255.255.252 pointopoint 10.0.2.2 ; ip route replace default via 10.0.2.1"
 ifconfig tun0 10.0.2.2 netmask 255.255.255.252 pointopoint 10.0.2.1 ; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
